@@ -1,123 +1,308 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hooks | Next-Gen Magnetic Cleaning</title>
-    
-    <!-- Libraries -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
-    <link rel="stylesheet" href="style.css">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NellAy | Professional Links</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--primary-blue:#1c92d2;
+--glass-bg:rgba(255,255,255,0.28);
+--glass-border:rgba(255,255,255,0.4);
+--text-main:#ffffff;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+-webkit-tap-highlight-color:transparent;
+}
+
+body{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+font-family:'Montserrat',sans-serif;
+background:linear-gradient(135deg,#a1c4fd 0%,#c2e9fb 100%);
+background-attachment:fixed;
+padding:20px;
+}
+
+/* floating card */
+
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-10px)}
+}
+
+.card{
+width:100%;
+max-width:380px;
+padding:45px 30px;
+border-radius:45px;
+background:var(--glass-bg);
+backdrop-filter:blur(25px);
+-webkit-backdrop-filter:blur(25px);
+border:1px solid var(--glass-border);
+box-shadow:0 25px 50px -12px rgba(0,0,0,0.15);
+text-align:center;
+animation:float 6s ease-in-out infinite;
+}
+
+/* logo */
+
+.logo-container{
+width:110px;
+height:110px;
+margin:0 auto 20px;
+border-radius:50%;
+overflow:hidden;
+border:3px solid #ffffff;
+box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+.logo-container img{
+width:100%;
+height:100%;
+object-fit:cover;
+border-radius:50%;
+display:block;
+}
+
+/* brand */
+
+h1{
+font-family:'Pacifico',cursive;
+font-size:38px;
+color:var(--text-main);
+text-shadow:0 4px 12px rgba(0,0,0,0.1);
+margin-bottom:12px;
+}
+
+.brand-ay{
+font-weight:700;
+}
+
+.bio{
+font-size:13px;
+color:var(--text-main);
+opacity:0.95;
+margin-bottom:36px;
+font-weight:500;
+letter-spacing:1.8px;
+text-transform:uppercase;
+}
+
+/* buttons */
+
+.links-container{
+display:flex;
+flex-direction:column;
+width:100%;
+gap:14px;
+}
+
+.social-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:14px;
+width:100%;
+}
+
+.btn{
+display:flex;
+align-items:center;
+justify-content:center;
+width:100%;
+padding:17px 10px;
+border-radius:22px;
+text-decoration:none;
+color:white;
+font-size:13px;
+font-weight:600;
+letter-spacing:1px;
+text-transform:uppercase;
+transition:all .3s cubic-bezier(.4,0,.2,1);
+}
+
+.btn-grad{
+background-image:linear-gradient(to right,#1c92d2 0%,#76b2e1 51%,#1c92d2 100%);
+background-size:200% auto;
+box-shadow:0 8px 15px rgba(0,0,0,0.08);
+}
+
+.btn-grad:hover{
+background-position:right center;
+transform:translateY(-3px);
+box-shadow:0 12px 20px rgba(0,0,0,0.12);
+}
+
+.btn-white{
+background:white;
+color:var(--primary-blue);
+box-shadow:0 8px 20px rgba(0,0,0,0.05);
+}
+
+.btn-white:hover{
+background:#f8fbff;
+transform:translateY(-3px);
+}
+
+.btn i{
+font-size:18px;
+margin-right:10px;
+width:20px;
+display:flex;
+justify-content:center;
+}
+
+.btn:active{
+transform:scale(.97);
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+margin-top:auto;
+width:100%;
+text-align:center;
+padding:20px 0 18px;
+font-family:'Montserrat',sans-serif;
+font-size:11px;
+letter-spacing:2px;
+text-transform:uppercase;
+color:rgba(255,255,255,0.55);
+white-space:nowrap;
+}
+
+footer span{
+color:rgba(255,255,255,0.9);
+font-weight:600;
+transition:.35s;
+}
+
+/* glass line */
+
+footer::after{
+content:"";
+display:block;
+margin:10px auto 0;
+width:70px;
+height:1px;
+background:linear-gradient(
+90deg,
+rgba(255,255,255,0),
+rgba(255,255,255,0.45),
+rgba(255,255,255,0)
+);
+border-radius:2px;
+}
+
+/* glow */
+
+footer:hover span{
+color:#ffffff;
+text-shadow:
+0 0 6px rgba(255,255,255,0.35),
+0 0 14px rgba(255,255,255,0.15);
+}
+
+/* responsive */
+
+@media (max-width:480px){
+
+.card{
+padding:40px 20px;
+max-width:95%;
+}
+
+h1{
+font-size:32px;
+}
+
+.bio{
+font-size:11px;
+letter-spacing:1.2px;
+}
+
+.btn{
+font-size:12px;
+padding:15px 5px;
+}
+
+.logo-container{
+width:100px;
+height:100px;
+}
+
+footer{
+font-size:10px;
+letter-spacing:1.6px;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
-    <!-- Professional Preloader -->
-    <div id="preloader">
-        <div class="preloader-content">
-            <div class="loader-circle"></div>
-            <div class="loader-text">
-                <span class="loading-word">HOOKS</span>
-                <div class="progress-bar-container">
-                    <div class="progress-fill"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="card">
 
-    <!-- Glassmorphism Navigation -->
-    <nav class="main-nav">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <img src="logo.png" alt="Hooks Logo" class="magnetic">
-            </div>
-            <ul class="nav-links">
-                <li><a href="#why" class="nav-item">چرا هوکس؟</a></li>
-                <li><a href="#products" class="nav-item">محصولات</a></li>
-                <li><a href="#guide" class="nav-item">راهنما</a></li>
-                <li><a href="#contact" class="nav-item">تماس با ما</a></li>
-            </ul>
-            <div class="nav-cta">
-                <button class="btn-primary magnetic-btn">
-                    <span>ورود / عضویت</span>
-                    <div class="btn-glow"></div>
-                </button>
-            </div>
-        </div>
-    </nav>
+<div class="logo-container">
+<img src="logo.jpg" alt="NellAy Logo">
+</div>
 
-    <main data-scroll-container>
-        <!-- Hero Section -->
-        <section class="hero-section" id="hero" data-scroll-section>
-            <div class="hero-bg-glow"></div>
-            <div class="container">
-                <div class="hero-wrapper">
-                    <div class="hero-text">
-                        <h1 class="reveal-text">آینده‌ی نظافت در <br><span class="gradient-text">دستان شماست</span></h1>
-                        <p class="hero-desc">شیشه پاک‌کن هوشمند هوکس با تکنولوژی نئودیمیوم؛ مرز میان داخل و خارج را از بین ببرید.</p>
-                        <div class="hero-btns">
-                            <button class="cta-main magnetic">همین حالا بخرید</button>
-                            <button class="cta-outline">مشاهده ویدیو</button>
-                        </div>
-                    </div>
-                    <div class="hero-visual" data-scroll data-scroll-speed="-2">
-                        <div class="floating-element product-card">
-                            <!-- جای خالی تصویر محصول -->
-                            <div class="img-placeholder">HOOKS PRO</div>
-                        </div>
-                        <div class="ambient-light"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<h1>Nell<span class="brand-ay">Ay</span></h1>
 
-        <!-- Testimonials Section -->
-        <section class="testimonials-section" data-scroll-section>
-            <div class="section-title">
-                <h2>صدای رضایت</h2>
-            </div>
-            <div class="testi-slider-wrapper">
-                <div class="testi-track" id="testiTrack">
-                    <div class="testi-item active">
-                        <div class="glass-inner">
-                            <p>"تکنولوژی مغناطیسش فراتر از انتظارمه. عالیه!"</p>
-                            <span class="user-name">نغمه لواسانی</span>
-                        </div>
-                    </div>
-                    <div class="testi-item">
-                        <div class="glass-inner">
-                            <p>"بسته‌بندی و متریال ساخت عالی. لذت بردم."</p>
-                            <span class="user-name">سارا اسماعیلی</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<p class="bio">
+COSMETICS | PERFUME LABORATORY
+</p>
 
-        <!-- Footer -->
-        <footer class="modern-footer" data-scroll-section>
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <h3>HOOKS</h3>
-                    <p>پیشرو در صنعت نظافت مدرن</p>
-                </div>
-                <div class="footer-links">
-                    <h4>لینک‌های مفید</h4>
-                    <ul>
-                        <li>سوالات متداول</li>
-                        <li>گارانتی محصول</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Hooks Group. All rights reserved.</p>
-            </div>
-        </footer>
-    </main>
+<div class="links-container">
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
-    <script src="main.js"></script>
+<div class="social-grid">
+
+<a href="https://instagram.com/_.nell.ay._" class="btn btn-grad" target="_blank">
+<i class="fab fa-instagram"></i>
+Instagram
+</a>
+
+<a href="https://t.me/NellAy20" class="btn btn-grad" target="_blank">
+<i class="fab fa-telegram-plane"></i>
+Telegram
+</a>
+
+</div>
+
+<a href="https://wa.me/message/XN4RHFD4LFNYI1" class="btn btn-grad" target="_blank">
+<i class="fab fa-whatsapp"></i>
+WhatsApp
+</a>
+
+<a href="tel:+989198207696" class="btn btn-white">
+<i class="fas fa-phone-alt"></i>
+Contact Me
+</a>
+
+</div>
+
+</div>
+
+<footer>
+coded & designed by <span>ParsaPlex</span>
+</footer>
+
 </body>
 </html>
